@@ -129,7 +129,7 @@ equals.addEventListener('click', function () {
 
 
 function operate(num1, num2, op) {
-    if (op = 'divide' && num2 === 0) {
+    if (op === 'divide' && num2 === 0) {
         result = 'Error';
     }
     else if (op === 'plus') {
