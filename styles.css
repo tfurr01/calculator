@@ -1,0 +1,45 @@
+body {
+    font-family: Orbitron;
+}
+h1 {
+    text-align: center;
+}
+p{
+    margin: 19px;
+}
+.display h1 {
+    margin: 51px;
+    font-family: Orbitron;
+    font-size: xx-large;
+}
+.container {
+    border: medium solid black;
+    height: 600px;
+    width: 400px;
+    margin: auto;
+    border-radius: 25px;
+}
+.display {
+    border: thin solid black;
+    height:150px;
+    width: 350px;
+    margin: 25px;
+    border-radius: 100px;
+}
+.btn-pad {
+    height: 350px;
+    width: 350px;
+    margin: 25px;
+    display: grid;
+    grid-template-columns: 87.5px 87.5px 87.5px 87.5px;
+}
+.btn {
+    border: thin solid black;
+    height: 80px;
+    width: 80px;
+    place-self: center;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Orbitron;
+    font-size: xx-large;
+}

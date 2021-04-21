@@ -3,13 +3,36 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Calculator</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        <h1>Calculator</h1>
+        <div class="container">
+            <div class='display'>
+                <h1 id='display'></h1>
+            </div>
+            <div class='btn-pad'>
+                <button class='btn' id='1'><p>1</p></button>
+                <button class='btn' id='2'><p>2</p></button>
+                <button class='btn' id='3'><p>3</p></button>
+                <button class='btn' id='+'><p>+</p></button>
+                <button class='btn' id='4'><p>4</p></button>
+                <button class='btn' id='5'><p>5</p></button>
+                <button class='btn' id='6'><p>6</p></button>
+                <button class='btn' id='-'><p>-</p></button>
+                <button class='btn' id='7'><p>7</p></button>
+                <button class='btn' id='8'><p>8</p></button>
+                <button class='btn' id='9'><p>9</p></button>
+                <button class='btn' id='x'><p>x</p></button>
+                <button class='btn' id='0'><p>0</p></button>
+                <button class='btn' id='C'><p>C</p></button>
+                <button class='btn' id='='><p>=</p></button>
+                <button class='btn' id='/'><p>/</p></button>
+            </div>
+        </div>
         
         <script src="script.js"></script>
     </body>
