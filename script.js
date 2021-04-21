@@ -78,7 +78,13 @@ zero.addEventListener('click', function () {
     display.innerHTML = displayText;
 });
 //operators
-plus.addEventListener('click', function () {   
+plus.addEventListener('click', function () { 
+    //check if two numbers are already entered
+    if (firstNumber != null) {
+        getResult();
+    }
+    //normal case
+
     firstNumber = Number(displayText);
     displayText += '+';
     operator = 'plus';
@@ -86,6 +92,10 @@ plus.addEventListener('click', function () {
     display.innerHTML = displayText;
 });
 minus.addEventListener('click', function () {
+    //check if two numbers are already entered
+    if (firstNumber != null) {
+        getResult();
+    }
     firstNumber = Number(displayText);
     displayText += '-';
     operator = 'minus';
@@ -93,6 +103,10 @@ minus.addEventListener('click', function () {
     display.innerHTML = displayText;
 });
 mult.addEventListener('click', function () {
+    //check if two numbers are already entered
+    if (firstNumber != null) {
+        getResult();
+    }
     firstNumber = Number(displayText);
     displayText += 'x';
     operator = 'multiply'; 
@@ -100,33 +114,18 @@ mult.addEventListener('click', function () {
     display.innerHTML = displayText;
 });
 division.addEventListener('click', function () {
+    //check if two numbers are already entered
+    if (firstNumber != null) {
+        getResult();
+    }
     firstNumber = Number(displayText);
     displayText += '/';
     operator = 'divide';
     console.log(firstNumber);
     display.innerHTML = displayText;
 });
-clear.addEventListener('click', function () {
-    display.innerHTML = '';  
-    firstNumber = null;
-    secondNumber = null;
-    operator = '';
-    result = 0;
-    displayText = '';
-});
-equals.addEventListener('click', function () {
-    //store second number
-    for (let i = 0; i < displayText.length; i ++) {
-        if (displayText[i] === '+' || displayText[i] === '-' || displayText[i] === 'x' || displayText[i] === '/') {
-            secondNumber = Number(displayText.slice(i+1));
-        }
-    }
-    display.innerHTML = '';
-    operate(firstNumber, secondNumber, operator);
-    displayText = result.toString();
-    display.innerHTML = displayText;
-});
-
+clear.addEventListener('click', clearAll);
+equals.addEventListener('click', getResult);
 
 function operate(num1, num2, op) {
     if (op === 'divide' && num2 === 0) {
@@ -145,4 +144,30 @@ function operate(num1, num2, op) {
         result = divide(num1, num2);
     }
 }
+
+function getResult() {
+    
+    
+    for (let i = 0; i < displayText.length; i ++) {
+        if (displayText[i] === '+' || displayText[i] === '-' || displayText[i] === 'x' || displayText[i] === '/') {
+            secondNumber = Number(displayText.slice(i+1));
+        }
+    }
+    display.innerHTML = '';
+    operate(firstNumber, secondNumber, operator);
+    displayText = result.toString();
+    display.innerHTML = displayText;
+       
+}
+
+function clearAll () {
+    display.innerHTML = '';  
+    firstNumber = null;
+    secondNumber = null;
+    operator = '';
+    result = 0;
+    displayText = '';
+}
+
+
 
