@@ -18,6 +18,7 @@ const mult = document.getElementById('x');
 const division = document.getElementById('/');
 const clear = document.getElementById('C');
 const equals = document.getElementById('=');
+const decimal = document.getElementById('.');
 const display = document.getElementById('display');
 let firstNumber = null;
 let secondNumber = null;
@@ -77,6 +78,7 @@ zero.addEventListener('click', function () {
     console.log(displayText);
     display.innerHTML = displayText;
 });
+decimal.addEventListener('click', useDecimal);
 //operators
 plus.addEventListener('click', function () { 
     //check if two numbers are already entered
@@ -90,6 +92,7 @@ plus.addEventListener('click', function () {
     operator = 'plus';
     console.log(firstNumber);
     display.innerHTML = displayText;
+    decimal.addEventListener('click', useDecimal);
 });
 minus.addEventListener('click', function () {
     //check if two numbers are already entered
@@ -101,6 +104,7 @@ minus.addEventListener('click', function () {
     operator = 'minus';
     console.log(firstNumber);
     display.innerHTML = displayText;
+    decimal.addEventListener('click', useDecimal);
 });
 mult.addEventListener('click', function () {
     //check if two numbers are already entered
@@ -112,6 +116,7 @@ mult.addEventListener('click', function () {
     operator = 'multiply'; 
     console.log(firstNumber);
     display.innerHTML = displayText;
+    decimal.addEventListener('click', useDecimal);
 });
 division.addEventListener('click', function () {
     //check if two numbers are already entered
@@ -123,12 +128,16 @@ division.addEventListener('click', function () {
     operator = 'divide';
     console.log(firstNumber);
     display.innerHTML = displayText;
+    decimal.addEventListener('click', useDecimal);
 });
 clear.addEventListener('click', clearAll);
 equals.addEventListener('click', getResult);
 
 function operate(num1, num2, op) {
     if (op === 'divide' && num2 === 0) {
+        result = 'Error';
+    }
+    else if (firstNumber ===null || secondNumber === null) {
         result = 'Error';
     }
     else if (op === 'plus') {
@@ -143,6 +152,10 @@ function operate(num1, num2, op) {
     else {
         result = divide(num1, num2);
     }
+    //rounds to 4 decimal places max
+    if (isNaN(result) == false) {
+        result = Math.round(result * 10000) / 10000;
+    }
 }
 
 function getResult() {
@@ -154,7 +167,7 @@ function getResult() {
         }
     }
     display.innerHTML = '';
-    operate(firstNumber, secondNumber, operator);
+    operate(firstNumber, secondNumber, operator);  
     displayText = result.toString();
     display.innerHTML = displayText;
        
@@ -167,6 +180,14 @@ function clearAll () {
     operator = '';
     result = 0;
     displayText = '';
+    decimal.addEventListener('click', useDecimal);
+}
+
+function useDecimal() {
+    displayText += '.';
+    console.log(displayText);
+    display.innerHTML = displayText;
+    decimal.removeEventListener('click', useDecimal);
 }
 
 

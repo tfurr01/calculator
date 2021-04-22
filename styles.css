@@ -1,5 +1,6 @@
 body {
     font-family: Orbitron;
+    background-color: #fffff2;
 }
 h1 {
     text-align: center;
@@ -8,12 +9,15 @@ p{
     margin: 19px;
 }
 .display h1 {
-    margin: 51px;
+    margin: 30px;
     font-family: Orbitron;
     font-size: xx-large;
+    color: #00FF00;
 }
 .container {
-    border: medium solid black;
+    border: thin solid #A8A9AD;
+    background-color: #A8A9AD;
+    box-shadow: 10px 10px 5px grey;
     height: 600px;
     width: 400px;
     margin: auto;
@@ -21,13 +25,14 @@ p{
 }
 .display {
     border: thin solid black;
-    height:150px;
+    background-color: #484848;
+    height:100px;
     width: 350px;
     margin: 25px;
     border-radius: 100px;
 }
 .btn-pad {
-    height: 350px;
+    height: 436px;
     width: 350px;
     margin: 25px;
     display: grid;
@@ -42,4 +47,17 @@ p{
     text-align: center;
     font-family: Orbitron;
     font-size: xx-large;
+}
+.bigButton {
+    grid-column-start: span 2;
+    width: 166px;
+}
+#C {
+    background-color: red;
+}
+.equals {
+    background-color: green;
+}
+.operator {
+    background-color: orange;
 }
